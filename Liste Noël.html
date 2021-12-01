@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Cadeau {
+            constructor(nom, lien, importance = 1, qui = "cedric") {
+                if (importance == null) importance = 1;
+                this.nom = nom;
+                this.lien = lien;
+                this.importance = "";
+                for (let i = 0; i < importance; i++) {
+                    this.importance += "\u2738";
+                }
+                this.qui = qui;
+                this.blocQui = document.getElementById(qui);
+                this.print();
+            }
+            print() {
+                this.li = document.createElement("li");
+                this.li.classList.add(this.qui);
+                this.a = document.createElement("a");
+                this.a.textContent = this.nom;
+                this.a.style.cursor = "not-allowed";
+                if (this.lien != null) {
+                    this.a.href = this.lien;
+                    this.a.target = "_blank";
+                    this.a.style.cursor = "pointer";
+                }
+                this.li.appendChild(this.a)
+                this.star = document.createElement("span");
+                this.star.textContent = this.importance;
+                this.star.style.border = "1px solid black";
+                this.star.style.borderRadius = "25px";
+                this.star.style.marginLeft = "1em";
+                this.star.style.padding = "0 0.2em";
+                this.star.style.color = "red";
+                this.star.style.textAlign = "center";
+                this.star.style.right = "0";
+                this.star.style.backgroundColor = (this.qui == "cedric") ? "blue" : "purple";
+                this.star.style.color = "yellow";
+                this.star.style.textShadow = "0px 0px 3px black";
+                this.star.style.fontSize = "large";
+                this.li.style.listStyle = "none";
+                this.li.classList.add("liste");
+                this.li.appendChild(this.star);
+                this.blocQui.appendChild(this.li);
+            }
+
+            addCommentaire(comment) {
+                this.comment = document.createElement("span");
+                this.li.appendChild(this.comment);
+                this.comment.textContent = comment;
+                this.comment.classList.add("comment");
+                this.comment.style.marginLeft = "2em";
+                return this;
+            }
+
+            warning() {
+                this.comment.classList.add("warning");
+                return this;
+            }
+
+            taken() {
+                this.a.style.textDecoration = "line-through";
+                this.a.style.color = "black";
+                this.a.style.cursor = "not-allowed";
+                this.a.removeAttribute("href");
+                this.star.remove();
+                this.comment.remove();
+            }
+
+        }
+
+        window.onload = function() {
+            new Cadeau("Deck Magic", "https://www.play-in.com/produit/359433-kit_de_demarrage_arena_2021-_magic_fr", 3);
+            new Cadeau(
+                "120 protèges-carte pour les cartes Magic",
+                "https://www.play-in.com/produit/337610-100_pochettes_dual_matte_format_standard_eucalyptus_-_dragon_shield", 3, "cedric").addCommentaire(
+                "Format standard").warning();
+            new Cadeau("Pantalon", null, 3, "loriane");
+            new Cadeau("Pyjama", null, 1, "loriane");
+            new Cadeau("Concert R3D", null, 1, "loriane").addCommentaire("Pour Steve");
+            new Cadeau("Concert Greenday - Fallout Boy", null, 1, "loriane").addCommentaire("Place assise").warning();
+            new Cadeau("Table de ping-pong", null, 1, "futur");
+            new Cadeau("Canapé", null, 3, "futur");
+            new Cadeau("Lit", null, 2, "futur");
+            new Cadeau("Lave-vaisselle", null, 3, "futur");
+            new Cadeau("Vélo", null, 2, "futur").addCommentaire("pour Loriane");
+            new Cadeau("Housse de protection voiture + volant", null, 2, "adeux");
+            new Cadeau("Lots de boules de pétanque", "https://www.obut.com/fr/boules-de-petanque/boules-de-petanque-loisir-inox/3-boules-de-petanque-obut-tatou.html", 2, "cedric").addCommentaire("Des boules un peu lourdes");
+        }
+    </script>
+    <h1 class="noel">Noël</h1>
+    <ul id="cedric">
+        <a>Liste Cédric</a>
+    </ul>
+    <ul id="loriane">
+        <a>Liste Loriane</a>
+    </ul>
+    <ul id="adeux">
+        <a>Cadeaux pour deux</a>
+    </ul>
+    <ul id="futur">
+        <a>Cadeaux futur - Participation</a>
+    </ul>
+
+</body>
+
+</html>
+<style>
+    ul {
+        background: rgba(67, 67, 67, 0.7);
+    }
+    
+    .warning::before {
+        content: "\26A0\A0";
+        color: red;
+        font-size: x-large;
+    }
+    
+    .warning {
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    body {
+        background-color: #333333;
+        background-image: url("https://cdn.pixabay.com/photo/2019/12/02/10/51/christmas-card-4667445_1280.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    ul#cedric>a:first-child {
+        color: white;
+        text-shadow: 2px 2px 3px blue, 0px 0px 9px blue, 0px 0px 15px blue, 0px 0px 21px blue, 0px 0px 27px blue;
+        padding: 0.2em 0.2em 0.2em 0;
+    }
+    
+    ul#adeux>a:first-child {
+        color: white;
+        text-shadow: 2px 2px 3px blue, 0px 0px 9px blue, 0px 0px 15px blue, 0px 0px 21px blue, 0px 0px 27px blue;
+        padding: 0.2em 0.2em 0.2em 0;
+    }
+    
+    ul#futur>a:first-child {
+        color: white;
+        text-shadow: 2px 2px 3px green, 0px 0px 9px green, 0px 0px 15px green, 0px 0px 21px green, 0px 0px 27px green;
+        padding: 0.2em 0.2em 0.2em 0;
+    }
+    
+    ul#loriane>a:first-child {
+        color: white;
+        padding: 0.2em 0.2em 0.2em 0;
+        text-shadow: 2px 2px 3px orange, 0px 0px 9px orange, 0px 0px 15px orange, 0px 0px 21px orange, 0px 0px 27px orange, 0px 0px 33px orange, 0px 0px 39px orange, 0px 0px 45px orange, 0px 0px 51px orange, 0px 0px 57px orange, 0px 0px 63px orange;
+    }
+    
+    .comment {
+        color: white;
+        padding: 0.5em;
+        vertical-align: middle;
+        background-color: #333333;
+        text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+    }
+    
+    .noel {
+        color: white;
+        text-align: center;
+        margin: auto;
+        padding: 0.5em;
+        vertical-align: middle;
+        width: 5%;
+        text-shadow: 0px 0px 6px blue, 0px 0px 12px blue, 0px 0px 18px blue, 0px 0px 24px blue, 0px 0px 30px blue, 0px 0px 36px blue, 0px 0px 42px blue;
+    }
+    
+    .liste {
+        list-style: none;
+        text-indent: 4em;
+        margin-top: 0.3em;
+    }
+    
+    .liste>a {
+        display: inline-block;
+        width: 10em!important;
+        text-indent: 0%;
+        justify-content: center;
+        vertical-align: middle;
+        font-style: italic;
+        text-decoration: none;
+        color: white;
+        background: #333333;
+        border-radius: 25px;
+        padding: 0.5em;
+        text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+    }
+    
+    li .comment {
+        visibility: hidden;
+    }
+    
+    li:hover .comment {
+        visibility: visible;
+    }
+</style>
