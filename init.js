@@ -6,7 +6,7 @@
                 "Format standard").warning();
             new Cadeau("Pantalon", null, 3, "loriane");
             new Cadeau("Pyjama", null, 1, "loriane");
-            new Cadeau("Concert R3D", null, 1, "loriane").addCommentaire("Pour Steve");
+            new Cadeau("Concert R3D", null, 1, "loriane").addCommentaire("=> Steve");
             new Cadeau("Concert Greenday - Fallout Boy", null, 1, "loriane").addCommentaire("Place assise").warning();
             new Cadeau("Table de ping-pong", null, 1, "futur");
             new Cadeau("Canapé", null, 3, "futur");
