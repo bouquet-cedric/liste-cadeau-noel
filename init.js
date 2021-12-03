@@ -1,5 +1,5 @@
         window.onload = function() {
-            new Cadeau("Deck Magic", "https://www.play-in.com/produit/359433-kit_de_demarrage_arena_2021-_magic_fr", 3);
+            new Cadeau("Deck Magic", "https://www.play-in.com/produit/359433-kit_de_demarrage_arena_2021-_magic_fr", 3).taken();
             new Cadeau(
                 "120 protèges-carte pour les cartes Magic",
                 "https://www.play-in.com/produit/337610-100_pochettes_dual_matte_format_standard_eucalyptus_-_dragon_shield", 3, "cedric").addCommentaire(
