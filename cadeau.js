@@ -61,8 +61,8 @@ class Cadeau {
                 this.a.style.color = "black";
                 this.a.style.cursor = "not-allowed";
                 this.a.removeAttribute("href");
-                this.star.remove();
-                this.comment.remove();
+                if (this.star != undefined) this.star.remove();
+                if (this.comment != undefined) this.comment.remove();
             }
 
         }
