@@ -7,6 +7,7 @@
             new Cadeau("Pantalon", null, 3, "loriane");
             new Cadeau("Téléphone", null, 3, "loriane").taken();
             new Cadeau("Pyjama", null, 1, "loriane");
+            new Cadeau("Guirlandes de déco","https://www.lavantgardiste.com/lampes/7680-guirlandes-a-led-decoratives-colorees.html#/couleur-multicolore/version-100_led",3,"adeux").addCommentaire("Voir avec Loriane");
             new Cadeau("Concert R3D", null, 1, "loriane").addCommentaire("=> Steve");
             new Cadeau("Concert Greenday - Fallout Boy", null, 1, "loriane").addCommentaire("Place assise").warning();
             new Cadeau("Table de ping-pong", null, 1, "futur");
